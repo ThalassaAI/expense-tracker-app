@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <style>
+      .expenseChartContainer {
+        height: 300px;
+        width: 100%;
+      }
+      canvas {
+      width: 100% !important; /* Ensure canvas fills container */
+      height: 100% !important; /* Ensure canvas fills container */
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row mb-3">
+        <div class="col-md-12">
+          <h1 class="text-center">Expense Tracker</h1>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <!-- Form -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Add Expense</h5>
+              <form action="/" id="expenseForm">
+                <div class="mb-3 ">
+                  <label for="titleInput" class="form-label">Title</label>
+                  <input
+                    type="text"
+                    name="titleInput"
+                    class="form-control"
+                    id="titleInput"
+                    value="HP Keyboard"
+                    placeholder="Enter title"
+                  />
+                </div>
+                <div class="mb-3 row">
+                  <div class="col">
+                    <label for="amountInput" class="form-label">Amount</label>
+                    <input
+                      type="number"
+                      step="0.01"
+                      min="0"
+                      name="amountInput"
+                      class="form-control"
+                      id="amountInput"
+                      value="230"
+                      placeholder="Enter amount"
+                    />
+                  </div>
+                  <div class="col">
+                    <label for="dateInput" class="form-label">Date</label>
+                    <input
+                      type="date"
+                      name="dateInput"
+                      class="form-control"
+                      id="dateInput"
+                      value="2025-03-03"
+                    />
+                  </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="categoryInput" class="form-label">Category</label>
+                  <select class="form-select" id="categoryInput">
+                    
+                  </select>
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary" type="button" id="addExpense">
+                    Add Expense
+                  </button>
+                  <button
+                    class="btn btn-warning d-none"
+                    type="button"
+                    id="saveChanges"
+                    onclick="saveChange()"
+                  >
+                    Save Changes
+                  </button>
+                  <button
+                    class="btn btn-danger d-none"
+                    type="button"
+                    id="cancel"
+                    onclick="cancelEditing()"
+                  >
+                    Cancel
+                  </button>
+                  <!-- <button class="btn btn-info" type="reset" id="reset">
+                    Reset
+                  </button> -->
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title text-center">Expense Chart</h5>
+              <div class="expenseChartContainer" id="expenseChartContainer">
+                <canvas id="expenseChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Expense List -->
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTableBody"></tbody>
+          </table>
+        </div>
+    </div>
+
+    
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
