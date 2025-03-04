@@ -1,0 +1,8 @@
+.expenseChartContainer {
+  height: 300px;
+  width: 100%;
+}
+canvas {
+  width: 100% !important; /* Ensure canvas fills container */
+  height: 100% !important; /* Ensure canvas fills container */
+}
